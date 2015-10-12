@@ -1,0 +1,5 @@
+.metadata/
+*.o
+*.d
+RemoteSystemsTempFiles/
+Debug/
