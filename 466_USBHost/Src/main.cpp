@@ -24,8 +24,9 @@ BTD Btd(&Usb); // You have to create the Bluetooth Dongle instance like so
 // After that you can simply create the instance like so and then press the PS button on the device
 PS4BT PS4(&Btd);
 
-bool printAngle, printTouch;
-uint8_t oldL2Value, oldR2Value;
+static bool printAngle, printTouch;
+static uint8_t oldL2Value, oldR2Value;
+static bool buttonPressed;
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -152,7 +153,12 @@ int main(void) {
 					}
 				}
 			}
-		}
+		} else if (!HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)) {
+		    if (!buttonPressed)
+		        PS4.pair(); // Start paring routine if user button was just pressed
+		    buttonPressed = true;
+		} else
+		    buttonPressed = false;
 	}
 }
 
@@ -223,10 +229,17 @@ void MX_USART2_UART_Init(void) {
 
 void MX_GPIO_Init(void) {
 	// GPIO Ports Clock Enable
-	__GPIOC_CLK_ENABLE()
-	;
 	__GPIOA_CLK_ENABLE()
 	;
 	__GPIOB_CLK_ENABLE()
 	;
+	__GPIOC_CLK_ENABLE()
+	;
+
+	// Initialize user button
+	GPIO_InitTypeDef GPIO_InitStruct;
+	GPIO_InitStruct.Pin = GPIO_PIN_13;
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 }
