@@ -29,12 +29,12 @@
 		<link>
 			<name>Arduino_libs</name>
 			<type>2</type>
-			<location>C:/Users/Lauszus/Dropbox/Firma/Brian_project/466_workspace/Arduino_libs</location>
+			<locationURI>PARENT-3-PROJECT_LOC/Arduino_libs</locationURI>
 		</link>
 		<link>
 			<name>USB_Host_Shield_2_0</name>
 			<type>2</type>
-			<location>C:/Users/Lauszus/Dropbox/Firma/Brian_project/466_workspace/USB_Host_Shield_2_0</location>
+			<locationURI>PARENT-3-PROJECT_LOC/USB_Host_Shield_2_0</locationURI>
 		</link>
 		<link>
 			<name>Application/SW4STM32/startup_stm32f446xx.s</name>
