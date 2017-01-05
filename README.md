@@ -10,4 +10,6 @@ The example project was created in [System Workbench for STM32](http://www.opens
 
 I recommend using the [Mini variant of the USB Host Shield](http://shop.tkjelectronics.dk/product_info.php?products_id=45). In order to connect the Nucleo board you should follow the following [guide](https://www.circuitsathome.com/mcu/teensy-3-0-now-supported-by-the-usb-host-library).
 
+The [wiki](https://github.com/Lauszus/Nucleo_F446RE_USBHost/wiki) contains some information on how to setup a project from scratch.
+
 For more information send me an email at <lauszus@gmail.com>.
